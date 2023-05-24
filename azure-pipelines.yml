@@ -45,7 +45,8 @@ stages:
             displayName: Copying Files
             inputs:
               Contents: |
-                **/*!.terraform/**/
+                **/*
+                !.terraform/**/
               TargetFolder: '$(build.artifactstagingdirectory)/artifacts'
 
           - task: PublishBuildArtifacts@1
