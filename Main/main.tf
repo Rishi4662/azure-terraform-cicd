@@ -56,26 +56,6 @@ module "virtual-machine" {
   
 }
 
-# This Module Is Used To Create MySQL Database
-
-module "database" {
-    source                  = "../Resources/MySql-DB"
-    name                    = var.name
-    rg-name                 = module.resource-group.resource-group-name
-    resource-location       = var.resource-location
-    db-version              = var.db-version
-    admin_username          = var.admin_username
-    storage_mb              = var.storage_mb
-    Purpose                 = var.Purpose
-    Client                  = var.Client
-    Email                   = var.Email
-    Owner                   = var.Owner
-    db_name                 = var.db_name
-    vm-ip                   = module.virtual-machine.vm_ip_address
-
-    depends_on = [ module.virtual-machine ]
-}
-
 
 output "VM-Password" {
     value       = module.virtual-machine.password
@@ -84,9 +64,4 @@ output "VM-Password" {
 
 output "VM-IP" {
     value = module.virtual-machine.vm_ip_address
-}
-
-output "DB-Password" {
-    value       = module.database.db-password
-    sensitive   = true
 }
