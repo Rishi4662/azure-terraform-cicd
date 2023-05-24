@@ -12,7 +12,7 @@ pool:
 
 stages:
   - stage:
-    displayName: Terraform Validate
+    displayName: Copying Terraform File
     jobs:
       - job:
         steps:
