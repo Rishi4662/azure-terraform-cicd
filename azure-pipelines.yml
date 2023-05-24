@@ -8,7 +8,7 @@ trigger:
 
 pool:
   vmImage: Default
-  name: Rishi-CICD
+  name: 'Rishi-CICD'
 
 stages:
   - stage:
