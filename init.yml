@@ -53,7 +53,3 @@ stages:
               PathtoPublish: '$(Build.ArtifactStagingDirectory)/artifacts'
               ArtifactName: 'drop'
               publishLocation: 'Container'
-- task: CopyFiles@2
-  inputs:
-    Contents: '**'
-    TargetFolder: 
