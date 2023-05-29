@@ -62,18 +62,6 @@ stages:
       - job:
         steps:
           - task: TerraformTaskV4@4
-            displayName: Terraform-Init
-            inputs:
-              provider: 'azurerm'
-              command: 'init'
-              workingDirectory: '$(System.DefaultWorkingDirectory)/Main'
-              backendServiceArm: 'Rishi-Principal-Connection'
-              backendAzureRmResourceGroupName: 'Rishi-Learning'
-              backendAzureRmStorageAccountName: 'terraformstatefiless'
-              backendAzureRmContainerName: 'terraform-sf'
-              backendAzureRmKey: 'dev-env.tfstate'
-
-          - task: TerraformTaskV4@4
             inputs:
               provider: 'azurerm'
               command: 'apply'
