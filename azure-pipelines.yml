@@ -72,11 +72,6 @@ stages:
               command: 'plan'
               workingDirectory: '$(System.DefaultWorkingDirectory)/Main'
               environmentServiceNameAzureRM: 'Rishi-Principal-Connection'
-- task: TerraformTaskV4@4
-  inputs:
-    provider: 'azurerm'
-    command: 'plan'
-    environmentServiceNameAzureRM: 'Rishi-Principal-Connection'
 
   - stage: 
     displayName: Infrastrucutre Provison
