@@ -57,6 +57,28 @@ stages:
               publishLocation: 'Container'
 
   - stage: 
+    displayName: Planning-Infrastrucutre
+    jobs:
+      - job: 
+        steps:
+          - task: TerraformInstaller@1
+            displayName: Installing Terraform
+            inputs:
+              terraformVersion: 'latest'
+
+          - task: TerraformTaskV4@4
+            inputs:
+              provider: 'azurerm'
+              command: 'plan'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/Main'
+              environmentServiceNameAzureRM: 'Rishi-Principal-Connection'
+- task: TerraformTaskV4@4
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    environmentServiceNameAzureRM: 'Rishi-Principal-Connection'
+
+  - stage: 
     displayName: Infrastrucutre Provison
     jobs:
       - job:
